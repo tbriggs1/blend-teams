@@ -1,0 +1,47 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.8/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.8",
+    "version": "1.0.0",
+    "id": "e0ddb471-3f81-480f-8f97-8a2b038cd798",
+    "packageName": "com.microsoft.teams.extension",
+    "developer": {
+        "name": "Teams App, Inc.",
+        "websiteUrl": "https://tomwork.eu.ngrok.io",
+        "privacyUrl": "https://tomwork.eu.ngrok.io/privacy",
+        "termsOfUseUrl": "https://tomwork.eu.ngrok.io/termsofuse"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "blend-teams",
+        "full": ""
+    },
+    "description": {
+        "short": "Short description for Channel Group Tab.",
+        "full": "Full description of Channel Group Tab."
+    },
+    "accentColor": "#FFFFFF",
+    "configurableTabs": [
+        {
+            "configurationUrl": "https://tomwork.eu.ngrok.io/config",
+            "canUpdateConfiguration": true,
+            "scopes": [
+                "team",
+                "groupchat"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "tomwork.eu.ngrok.io"
+    ],
+    "webApplicationInfo": {
+        "id": "eee26a9f-5250-44eb-b630-74a2ebab25c5",
+        "resource": "api://tomwork.eu.ngrok.io/eee26a9f-5250-44eb-b630-74a2ebab25c5"
+    }
+}
