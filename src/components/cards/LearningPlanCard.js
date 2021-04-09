@@ -14,7 +14,7 @@ const LearningPlanCard = (props) => (
           status="unknown"
         />
         <Flex column>
-          <Text content="Title goes here" weight="bold" />
+          <Text content={props.title} weight="bold" />
           <Text content="Secondary line" size="small" />
         </Flex>
       </Flex>
