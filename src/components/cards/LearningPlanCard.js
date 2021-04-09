@@ -1,9 +1,10 @@
 import { Button, Flex, Image, Text, Avatar, Card } from '@fluentui/react-northstar'
 import React from 'react'
 import { StarIcon, DownloadIcon, MoreIcon } from '@fluentui/react-icons-northstar'
+import '../styles/LearningPlanWidget.css';
 
 const LearningPlanCard = (props) => (
-  <Card aria-roledescription="card with avatar, image and action buttons">
+  <Card aria-roledescription="card with avatar, image and action buttons" className="card">
     <Card.Header>
       <Flex gap="gap.small">
         <Avatar
