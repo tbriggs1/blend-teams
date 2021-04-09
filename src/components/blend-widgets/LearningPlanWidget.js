@@ -1,7 +1,8 @@
 import React from 'react';
 import LearningPlanCard from '../cards/LearningPlanCard';
-import { Carousel } from 'react-responsive-carousel';
+import Carousel from 'react-grid-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import '../styles/LearningPlanWidget.css';
 // Learning Plan Widget
 export const LearningPlanWidget = (props) => {
@@ -9,6 +10,7 @@ export const LearningPlanWidget = (props) => {
     const [error, setError] = React.useState(null);
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [items, setItems] = React.useState([]);
+    const [index, setIndex] = React.useState([]);
     // Calls once on component init
     React.useEffect(() => {
         //Api call to Django Server
@@ -18,7 +20,6 @@ export const LearningPlanWidget = (props) => {
             (result) => {
               setIsLoaded(true);
               setItems(result); 
-              console.log(result);
               console.log(result);
             },
             (error) => {
@@ -36,16 +37,13 @@ export const LearningPlanWidget = (props) => {
         return (
         // Create a Carousel of cards
         <>
-            <Carousel>
+       <Carousel className="carousel-div" cols={4} rows={1} gap={5} loop>
                 {items.map(item => (
-                    <div class="carousel-div"> 
-                    <LearningPlanCard avatar={props.avatar} title={item.title}/>  
-                    <LearningPlanCard avatar={props.avatar} title={item.title}/> 
-                    <LearningPlanCard avatar={props.avatar} title={item.title}/>  
-                    </div>
-                ))}
-                
-            </Carousel>
+                    <Carousel.Item>
+                        <LearningPlanCard avatar={props.avatar} title={item.title} description={item.description} url={item.itemDetailsDeeplink} type={item.componentTypeDesc}/> 
+                    </Carousel.Item>
+                ))}            
+         </Carousel>
         </>
         )
     }

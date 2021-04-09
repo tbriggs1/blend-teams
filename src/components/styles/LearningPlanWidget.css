@@ -1,18 +1,33 @@
+
+
 .image-style{
     max-width: 70px;
     max-height: 70px;
     margin: 15px 0px 0px 5px;
 }
 
-.carousel-div{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+
+
+.card-title{
+    text-overflow: ellipsis;
 }
 
+.anchor{
+    text-decoration: none;
+}
+
+
+
 .card{
-    margin-right: 2rem;
-    margin-left: 2rem;
+    max-height: 80vh;
+    display:flex;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+
+
+span.ui-text{
+    height:2.8rem;
+    overflow: hidden;
 }
