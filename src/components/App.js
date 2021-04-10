@@ -15,6 +15,7 @@ import TabConfig from "./TabConfig";
 import Test from "./test";
 import RenderLearningPlan from '.././components/Routes/RenderLearningPlan';
 import RenderUpcomingEvents from './Routes/RenderUpcomingEvents';
+import RenderCatalog from './Routes/RenderCatalog';
 
 /**
  * The main app which handles the initialization and routing
@@ -36,6 +37,7 @@ function App() {
       <Route exact path="/auth-end" component={ClosePopup} />
       <Route exact path="/Learning Plan" component={RenderLearningPlan} />
       <Route exact path="/Upcoming Events" component={RenderUpcomingEvents} />
+      <Route exact path="/Catalog" component={RenderCatalog} />
     </Router>
   );
 }

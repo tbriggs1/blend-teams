@@ -16,7 +16,7 @@ import { Dropdown, Button } from '@fluentui/react-northstar'
 class TabConfig extends React.Component {
     constructor(props){
       super(props);
-      this.state = {page: "fuck"};
+      this.state = {page: ""};
       this.state = {inputItems: [
         'Learning Plan',
       'Curricula Details',
@@ -77,7 +77,7 @@ class TabConfig extends React.Component {
         <div>
            <Dropdown
               items={this.state.inputItems}
-              placeholder="Select your hero"
+              placeholder="Select your widget"
               checkable
               getA11ySelectionMessage={{
                 onAdd: item => this.setPage(item),
