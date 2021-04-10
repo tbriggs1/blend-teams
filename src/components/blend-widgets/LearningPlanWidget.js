@@ -20,7 +20,7 @@ export const LearningPlanWidget = (props) => {
     // Calls once on component init
     React.useEffect(() => {
         //Api call to Django Server
-        fetch(`http://127.0.0.1:8000/learningplan/data/fetchData/`)
+        fetch(`https://tomdb.ngrok.io/learningplan/data/fetchData/`)
           .then(res => res.json())
           .then(
             (result) => {
