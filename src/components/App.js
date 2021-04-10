@@ -12,6 +12,9 @@ import Tab from "./Tab";
 import ConsentPopup from "./ConsentPopup";
 import ClosePopup from "./ClosePopup";
 import TabConfig from "./TabConfig";
+import Test from "./test";
+import RenderLearningPlan from '.././components/Routes/RenderLearningPlan';
+import RenderUpcomingEvents from './Routes/RenderUpcomingEvents';
 
 /**
  * The main app which handles the initialization and routing
@@ -31,6 +34,8 @@ function App() {
       <Route exact path="/config" component={TabConfig}/>
       <Route exact path="/auth-start" component={ConsentPopup} />
       <Route exact path="/auth-end" component={ClosePopup} />
+      <Route exact path="/Learning Plan" component={RenderLearningPlan} />
+      <Route exact path="/Upcoming Events" component={RenderUpcomingEvents} />
     </Router>
   );
 }

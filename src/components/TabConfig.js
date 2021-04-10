@@ -4,7 +4,9 @@
 import React from 'react';
 import './App.css';
 import * as microsoftTeams from "@microsoft/teams-js";
-
+import IndexDropdown from './IndexDropdown';
+import {  FormDropdown, Form, FormButton } from '@fluentui/react-northstar'
+import { Dropdown, Button } from '@fluentui/react-northstar'
 /**
  * The 'Config' component is used to display your group tabs
  * user configuration options.  Here you will allow the user to 
@@ -12,21 +14,53 @@ import * as microsoftTeams from "@microsoft/teams-js";
  * their choices and communicate that to Teams to enable the save button.
  */
 class TabConfig extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {page: "fuck"};
+      this.state = {inputItems: [
+        'Learning Plan',
+      'Curricula Details',
+      'Upcoming Events',
+      'Featured Content',
+      'Catalog',
+      'Custom'
+      ]}
+      
+    }
 
+
+
+    // setPage(item){
+      
+    //   this.setState({
+    //    page: "ho", () => {
+    //      console.log()
+    //    }
+    //   });
+    //   console.log(this.page)
+    // }
+
+    setPage(item) {
+      this.setState({ page: item }, () => 
+      console.log(this.state.page));
+   }
+        
     render() {
+   
       /**
        * When the user clicks "Save", save the url for your configured tab.
        * This allows for the addition of query string parameters based on
        * the settings selected by the user.
        */
+      
       microsoftTeams.settings.registerOnSaveHandler((saveEvent) => {
 
         const baseUrl = `https://${window.location.hostname}:${window.location.port}`;
         microsoftTeams.settings.setSettings({
-          "suggestedDisplayName": "My Tab",
+          "suggestedDisplayName": this.state.page,
           "entityId": "Test",
-          "contentUrl": baseUrl + "/tab",
-          "websiteUrl": baseUrl + "/tab"
+          "contentUrl": baseUrl + `/${this.state.page}`,
+          "websiteUrl": baseUrl + `/${this.state.page}`
         });
         saveEvent.notifySuccess();
        });
@@ -41,14 +75,22 @@ class TabConfig extends React.Component {
   
       return (
         <div>
-          <h1>Tab Configuration</h1>
-          <div>
-            This is where you will add your tab configuration options the user
-            can choose when the tab is added to your team/group chat.            
-          </div>
+           <Dropdown
+              items={this.state.inputItems}
+              placeholder="Select your hero"
+              checkable
+              getA11ySelectionMessage={{
+                onAdd: item => this.setPage(item),
+                // onAdd: item => console.log(this.state.page),
+            }}
+          />
         </div>
       );
     }
   }
 
   export default TabConfig;
+
+
+  
+    
