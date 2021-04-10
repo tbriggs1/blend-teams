@@ -17,6 +17,7 @@ import RenderLearningPlan from '.././components/Routes/RenderLearningPlan';
 import RenderUpcomingEvents from './Routes/RenderUpcomingEvents';
 import RenderCatalog from './Routes/RenderCatalog';
 import RenderCurriculaDetails from './Routes/RenderCurriculaDetails';
+import RenderFeaturedContent from './Routes/RenderFeaturedContent';
 
 /**
  * The main app which handles the initialization and routing
@@ -40,6 +41,7 @@ function App() {
       <Route exact path="/Upcoming Events" component={RenderUpcomingEvents} />
       <Route exact path="/Catalog" component={RenderCatalog} />
       <Route exact path="/Curricula Details" component={RenderCurriculaDetails} />
+      <Route exact path="/Featured Content" component={RenderFeaturedContent} />
     </Router>
   );
 }

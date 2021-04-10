@@ -9,6 +9,7 @@ import * as microsoftTeams from "@microsoft/teams-js";
 import {  FormDropdown, Form, FormButton } from '@fluentui/react-northstar'
 import { Dropdown, Button } from '@fluentui/react-northstar'
 import { Avatar, Loader } from '@fluentui/react-northstar'
+import LoadingAnimation from '../misc/LoadingAnimation';
 // Learning Plan Widget
 export const LearningPlanWidget = (props) => {
     //State variables to update data and pass down
@@ -37,7 +38,7 @@ export const LearningPlanWidget = (props) => {
     if (error) {
     return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div className="LoadingAnimation"><LoadingAnimation /></div>
     } else{
         return (
         // Create a Carousel of cards
