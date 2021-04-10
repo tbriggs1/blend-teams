@@ -29,7 +29,7 @@ const LearningPlanCard = (props) => {
         </div>
         <Card.Body>
           <Flex column gap="gap.small">
-            <Image src="https://fabricweb.azureedge.net/fabric-website/assets/images/wireframe/square-image.png" className="card-img"/>
+            <Image src={student} className="card-img"/>
             <Text content={props.description} />
           </Flex>
         </Card.Body>
