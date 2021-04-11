@@ -6,22 +6,14 @@ import { List } from '@fluentui/react-northstar'
 
 
 const CurriculaDetailsCard = (listItems) => {
-  console.log(listItems)
 
+    //Gets the list from the list array
   const list = listItems.listItems
-  console.log(list)  
+ 
     return(
         <div className="UpcomingEventsMain">
              <Card class="upcoming-card" aria-roledescription="card with avatar, image and action buttons">
-                <Card.Header>
-                    <Flex space="between">
-                        <Button content="All Events" />
-                        <Flex>
-                            <CalendarIcon />
-                            
-                        </Flex>
-                    </Flex>
-                    </Card.Header>
+              
                     <Card.Body>
                     <Flex column gap="gap.small">
                         <List defaultSelectedIndex={0} items={list} />

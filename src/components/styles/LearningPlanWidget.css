@@ -17,11 +17,11 @@
 
 
 .card{
-    max-height: 80vh;
     display:flex;
     margin-bottom: 2rem;
     margin-top: 2rem;
     margin-left:1.5rem;
+    padding-bottom: 2rem;
 }
 
 
@@ -42,3 +42,4 @@ span.ui-text{
 img.ui-image.ek.av.ap.fn.card-img{
     height: 17rem;
 }
+

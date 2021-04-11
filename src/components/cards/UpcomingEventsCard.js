@@ -5,6 +5,9 @@ import '../styles/UpcomingEventsWidget.css'
 
 const UpcomingEventsCard = (listItems) => {
   
+    //Gets the list from the list array
+  const list = listItems.listItems
+
     return(
         <div className="UpcomingEventsMain">
              <Card class="upcoming-card" aria-roledescription="card with avatar, image and action buttons">
@@ -19,7 +22,7 @@ const UpcomingEventsCard = (listItems) => {
                     </Card.Header>
                     <Card.Body>
                     <Flex column gap="gap.small">
-                        <List defaultSelectedIndex={0} />
+                        <List defaultSelectedIndex={0} items={list}/>
                     </Flex>
                     </Card.Body>
         </Card>

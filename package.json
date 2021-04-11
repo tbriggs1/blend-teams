@@ -12,6 +12,7 @@
         "crypto": "^1.0.1",
         "pure-react-carousel": "^1.27.6",
         "react": "^16.13.1",
+        "react-csv-reader": "^3.3.0",
         "react-dom": "^16.14.0",
         "react-grid-carousel": "^1.0.1",
         "react-responsive-carousel": "^3.2.18",
