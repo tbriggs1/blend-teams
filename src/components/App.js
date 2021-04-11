@@ -4,7 +4,7 @@
 import React from 'react';
 import './App.css';
 import * as microsoftTeams from "@microsoft/teams-js";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Privacy from "./Privacy";
 import TermsOfUse from "./TermsOfUse";
@@ -19,6 +19,8 @@ import RenderCatalog from './Routes/RenderCatalog';
 import RenderCurriculaDetails from './Routes/RenderCurriculaDetails';
 import RenderFeaturedContent from './Routes/RenderFeaturedContent';
 import CatalogJob from './data/CatalogJob';
+import FeaturedContentCatalogCard from './cards/FeaturedContentCatalogCard';
+import FeaturedCatalogWidget from './blend-widgets/FeaturedCatalogWidget';
 
 /**
  * The main app which handles the initialization and routing
@@ -44,6 +46,9 @@ function App() {
       <Route exact path="/Curricula Details" component={RenderCurriculaDetails} />
       <Route exact path="/Featured Content" component={RenderFeaturedContent} />
       <Route exact path="/admin" component={CatalogJob} />
+      <Switch>
+        <Route exact path="/FeaturedCatalog" component={FeaturedCatalogWidget} />
+      </Switch>
     </Router>
   );
 }

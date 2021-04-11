@@ -4,6 +4,9 @@ import { StarIcon, DownloadIcon, MoreIcon } from '@fluentui/react-icons-northsta
 import '.././styles/CatalogCard.css'
 
 const FeaturedContentCatalogCard = (props) => {
+    const addContent = (e) => {
+      console.log(e)
+    }
     return(
       <Card aria-roledescription="card with avatar, image and action buttons" className="card">
         <div class="card-header">
@@ -30,7 +33,7 @@ const FeaturedContentCatalogCard = (props) => {
         </Card.Body>
         <Card.Footer>
           <Flex space="between">
-          <a class="anchor" href={props.url} target='_blank'><Button content="Launch" primary/></a>
+          <a class="anchor" href={props.url} target='_blank'><Button content="Select" primary  onClick={addContent}/></a>
             <Flex>
               <Button icon={<StarIcon />} iconOnly text title="Favourite" />
               <Button icon={<DownloadIcon />} iconOnly text title="Download" />
