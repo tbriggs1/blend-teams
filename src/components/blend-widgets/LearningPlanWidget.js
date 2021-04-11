@@ -5,10 +5,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import '../styles/LearningPlanWidget.css';
 import '../App.css';
-import * as microsoftTeams from "@microsoft/teams-js";
-import {  FormDropdown, Form, FormButton } from '@fluentui/react-northstar'
-import { Dropdown, Button } from '@fluentui/react-northstar'
-import { Avatar, Loader } from '@fluentui/react-northstar'
 import LoadingAnimation from '../misc/LoadingAnimation';
 // Learning Plan Widget
 export const LearningPlanWidget = (props) => {
