@@ -23,7 +23,8 @@ class TabConfig extends React.Component {
       'Upcoming Events',
       'Featured Content',
       'Catalog',
-      'Custom'
+      'Custom',
+      'Admin'
       ]}
       
     }

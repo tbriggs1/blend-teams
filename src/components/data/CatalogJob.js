@@ -1,100 +1,70 @@
-import React from 'react'
-import { CSVReader } from 'react-papaparse'
-const buttonRef = React.createRef()
-
-const CatalogJob = () => {
-    handleOpenDialog = (e) => {
-        // Note that the ref is set async, so it might be null at some point
-        if (buttonRef.current) {
-          buttonRef.current.open(e)
-        }
-      }
-    
-      handleOnFileLoad = (data) => {
-        console.log('---------------------------')
-        console.log(data)
-        console.log('---------------------------')
-      }
-    
-      handleOnError = (err, file, inputElem, reason) => {
-        console.log(err)
-      }
-    
-      handleOnRemoveFile = (data) => {
-        console.log('---------------------------')
-        console.log(data)
-        console.log('---------------------------')
-      }
-    
-      handleRemoveFile = (e) => {
-        // Note that the ref is set async, so it might be null at some point
-        if (buttonRef.current) {
-          buttonRef.current.removeFile(e)
-        }
-      }
-      return (
-        <CSVReader
-          ref={buttonRef}
-          onFileLoad={this.handleOnFileLoad}
-          onError={this.handleOnError}
-          noClick
-          noDrag
-          onRemoveFile={this.handleOnRemoveFile}
-        >
-          {({ file }) => (
-            <aside
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                marginBottom: 10
-              }}
-            >
-              <button
-                type='button'
-                onClick={this.handleOpenDialog}
-                style={{
-                  borderRadius: 0,
-                  marginLeft: 0,
-                  marginRight: 0,
-                  width: '40%',
-                  paddingLeft: 0,
-                  paddingRight: 0
-                }}
-              >
-                Browse file
-              </button>
-              <div
-                style={{
-                  borderWidth: 1,
-                  borderStyle: 'solid',
-                  borderColor: '#ccc',
-                  height: 45,
-                  lineHeight: 2.5,
-                  marginTop: 5,
-                  marginBottom: 5,
-                  paddingLeft: 13,
-                  paddingTop: 3,
-                  width: '60%'
-                }}
-              >
-                {file && file.name}
-              </div>
-              <button
-                style={{
-                  borderRadius: 0,
-                  marginLeft: 0,
-                  marginRight: 0,
-                  paddingLeft: 20,
-                  paddingRight: 20
-                }}
-                onClick={this.handleRemoveFile}
-              >
-                Remove
-              </button>
-            </aside>
-          )}
-        </CSVReader>
-      )
+import React, { Component } from 'react';
+import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import XLSX from 'xlsx';
+import { make_cols } from './MakeColumns';
+import { SheetJSFT } from './types';
+ 
+class CatalogJob extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      file: {},
+      data: [],
+      cols: []
+    }
+    this.handleFile = this.handleFile.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+ 
+  handleChange(e) {
+    const files = e.target.files;
+    if (files && files[0]) this.setState({ file: files[0] });
+  };
+ 
+  handleFile() {
+    /* Boilerplate to set up FileReader */
+    const reader = new FileReader();
+    const rABS = !!reader.readAsBinaryString;
+ 
+    reader.onload = (e) => {
+      /* Parse data */
+      const bstr = e.target.result;
+      const wb = XLSX.read(bstr, { type: rABS ? 'binary' : 'array', bookVBA : true });
+      /* Get first worksheet */
+      const wsname = wb.SheetNames[0];
+      const ws = wb.Sheets[wsname];
+      /* Convert array of arrays */
+      const data = XLSX.utils.sheet_to_json(ws);
+      /* Update state */
+      this.setState({ data: data, cols: make_cols(ws['!ref']) }, () => {
+        console.log(JSON.stringify(this.state.data, null, 2));
+      });
+ 
+    };
+ 
+    if (rABS) {
+      reader.readAsBinaryString(this.state.file);
+    } else {
+      reader.readAsArrayBuffer(this.state.file);
+    };
+  }
+ 
+  render() {
+    return (
+      <div>
+        <h1>Import Catalog Job</h1>
+        <label htmlFor="file">Upload A Document</label>
+        <br />
+        <input type="file" className="form-control" id="file" accept={SheetJSFT} onChange={this.handleChange} />
+        <br />
+        <input type='submit' 
+          value="Run Job"
+          onClick={this.handleFile} />
+          </div>
+      
+    )
+  }
 }
-
+ 
 export default CatalogJob;
