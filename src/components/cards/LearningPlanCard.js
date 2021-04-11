@@ -17,7 +17,7 @@ const LearningPlanCard = (props) => {
               <Avatar
                 image={props.avatar}
                 label="Copy bandwidth"
-                name="Robert Tolbert"
+                name="Username"
                 status="unknown"
               />
               <Flex column>

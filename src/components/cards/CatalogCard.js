@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Flex, Image, Text, Avatar, Card } from '@fluentui/react-northstar'
 import { StarIcon, DownloadIcon, MoreIcon } from '@fluentui/react-icons-northstar'
+import '.././styles/CatalogCard.css'
 
 const CatalogCard = (props) => {
     return(
@@ -23,13 +24,13 @@ const CatalogCard = (props) => {
         </div>
         <Card.Body>
           <Flex column gap="gap.small">
-            <Image src="https://fabricweb.azureedge.net/fabric-website/assets/images/wireframe/square-image.png" className="card-img"/>
+            <Image class="card-image" src={props.picture} className="card-img"/>
             <Text content={props.description} />
           </Flex>
         </Card.Body>
         <Card.Footer>
           <Flex space="between">
-          <a class="anchor" href={props.url} target='_blank'><Button content="Launch"/></a>
+          <a class="anchor" href={props.url} target='_blank'><Button content="Launch" primary/></a>
             <Flex>
               <Button icon={<StarIcon />} iconOnly text title="Favourite" />
               <Button icon={<DownloadIcon />} iconOnly text title="Download" />
