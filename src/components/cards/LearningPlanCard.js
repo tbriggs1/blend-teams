@@ -35,7 +35,7 @@ const LearningPlanCard = (props) => {
         </Card.Body>
         <Card.Footer>
           <Flex space="between">
-          <a class="anchor" href={props.url} target='_blank'><Button content="Launch"/></a>
+          <a class="anchor" href={props.url} target='_blank'><Button content="Launch" primary/></a>
             <Flex>
               <Button icon={<StarIcon />} iconOnly text title="Favourite" />
               <Button icon={<DownloadIcon />} iconOnly text title="Download" />
