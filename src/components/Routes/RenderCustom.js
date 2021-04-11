@@ -1,18 +1,19 @@
 import React from 'react'
-import CatalogWidget from '../blend-widgets/CatalogWidget'
-import CurriculaDetailsWidget from '../blend-widgets/CurriculaDetailsWidget'
+import RenderCatalog from './RenderCatalog'
+import RenderCurriculaDetails from './RenderCurriculaDetails'
 import FeaturedContentWidget from '../blend-widgets/FeaturedContentWidget'
-import LearningPlanWidget from '../blend-widgets/LearningPlanWidget'
-import UpComingEventsWidget from '../blend-widgets/UpComingEventsWidget'
+import RenderLearningPlan from './RenderLearningPlan'
+import RenderUpcomingEvents from './RenderUpcomingEvents'
+import RenderFeaturedContent from './RenderFeaturedContent'
 
 const RenderCustom = () => {
     return(
         <div>
-            <LearningPlanWidget />
-            <CurriculaDetailsWidget />
-            <FeaturedContentWidget />
-            <CatalogWidget />
-            <UpComingEventsWidget />
+            <RenderLearningPlan />
+            <RenderCurriculaDetails />
+            <RenderFeaturedContent />
+            <RenderCatalog />
+            <RenderUpcomingEvents/>
         </div>
     )
 }

@@ -2,7 +2,7 @@
     display:flex;
     margin-bottom: 1rem;
     padding-top:2rem;
-    gap: 1.3rem;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     
@@ -10,5 +10,7 @@
 
 
 .ui-dropdown__container.cp.cq.bf.bo.bp.bq.br.bj.bk.bl.bm.bg.cr.cs.ct.cu.cv.cw.bh.cx.cy.cz.da.db.dc.dd.de, .ui-dropdown__selected-items.cp.cq.df.dg.dh.di, .dropdown{
-    max-width: 10vw;
+    max-width: 14vw;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
