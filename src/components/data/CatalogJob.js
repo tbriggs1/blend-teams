@@ -4,7 +4,10 @@ import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import XLSX from 'xlsx';
 import { make_cols } from './MakeColumns';
 import { SheetJSFT } from './types';
+import axios from 'axios';
  
+const body = [];
+
 class CatalogJob extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +19,7 @@ class CatalogJob extends Component {
     this.handleFile = this.handleFile.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
  
   handleChange(e) {
     const files = e.target.files;
@@ -38,7 +42,16 @@ class CatalogJob extends Component {
       const data = XLSX.utils.sheet_to_json(ws);
       /* Update state */
       this.setState({ data: data, cols: make_cols(ws['!ref']) }, () => {
-        console.log(JSON.stringify(this.state.data, null, 2));
+        const items = JSON.stringify(this.state.data, null, 2);
+        console.log(typeof(data))
+        console.log(typeof(items))
+        console.log(data)
+        data.map(item => {
+            axios.post('https://tomdb.ngrok.io/Catalog/data/', item);
+            
+        })
+        console.log(body)
+        
       });
  
     };

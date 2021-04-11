@@ -11,7 +11,7 @@ const CurriculaDetailsWidget = () => {
    const [error, setError] = React.useState(null);
    const [isLoaded, setIsLoaded] = React.useState(false);
    const [items, setItems] = React.useState([]);
-   const listItems = [];
+    const listItems = [];
    // Calls once on component init
    React.useEffect(() => {
        //Api call to Django Server
