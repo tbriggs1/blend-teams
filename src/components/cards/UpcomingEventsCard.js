@@ -1,12 +1,10 @@
-import { Button, Flex, CalendarIcon, Card } from '@fluentui/react-northstar'
+import { Button, Flex, CalendarIcon, Card, Image, List } from '@fluentui/react-northstar'
 import React from 'react'
 import '../styles/UpcomingEventsWidget.css'
-import { List } from '@fluentui/react-northstar'
+
 
 const UpcomingEventsCard = (listItems) => {
-   
-
-
+  
     return(
         <div className="UpcomingEventsMain">
              <Card class="upcoming-card" aria-roledescription="card with avatar, image and action buttons">
@@ -21,7 +19,7 @@ const UpcomingEventsCard = (listItems) => {
                     </Card.Header>
                     <Card.Body>
                     <Flex column gap="gap.small">
-                        <List defaultSelectedIndex={0} items={listItems} />
+                        <List defaultSelectedIndex={0} />
                     </Flex>
                     </Card.Body>
         </Card>

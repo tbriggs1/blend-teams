@@ -1,0 +1,16 @@
+body{
+    margin-left:auto;
+    margin-right:auto;
+    width: 100vw;
+}
+
+.upcoming-card{
+    width: 40vw;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.UpcomingEventsMain{
+    display:flex;
+    justify-content: center;
+}
