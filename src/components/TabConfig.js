@@ -7,6 +7,8 @@ import * as microsoftTeams from "@microsoft/teams-js";
 import IndexDropdown from './IndexDropdown';
 import {  FormDropdown, Form, FormButton } from '@fluentui/react-northstar'
 import { Dropdown, Button } from '@fluentui/react-northstar'
+import './styles/LandingPage.css'
+import blendlogo from '../images/blend.png'
 /**
  * The 'Config' component is used to display your group tabs
  * user configuration options.  Here you will allow the user to 
@@ -75,7 +77,13 @@ class TabConfig extends React.Component {
       microsoftTeams.settings.setValidityState(true);
   
       return (
-        <div>
+        <div className="main">
+           <div className="blend-home">
+             <img src={blendlogo} height="60px" />
+             <h3>BLEND - Learning Experience Platform</h3>
+           </div>
+           <p>Connect your employees to a world class Learning Experience Platform which blends together the best of SuccessFactors Learning, SAP JAM and any External Learning library into a single destination.</p>
+           <h1>Choose a Widget below:</h1>
            <Dropdown
               items={this.state.inputItems}
               placeholder="Select your widget"

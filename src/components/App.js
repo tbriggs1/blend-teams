@@ -21,6 +21,7 @@ import RenderFeaturedContent from './Routes/RenderFeaturedContent';
 import CatalogJob from './data/CatalogJob';
 import FeaturedContentCatalogCard from './cards/FeaturedContentCatalogCard';
 import FeaturedCatalogWidget from './blend-widgets/FeaturedCatalogWidget';
+import RenderCustom from './Routes/RenderCustom';
 
 /**
  * The main app which handles the initialization and routing
@@ -46,6 +47,7 @@ function App() {
       <Route exact path="/Curricula Details" component={RenderCurriculaDetails} />
       <Route exact path="/Featured Content" component={RenderFeaturedContent} />
       <Route exact path="/admin" component={CatalogJob} />
+      <Route exact path="/Custom" component={RenderCustom} />
       <Switch>
         <Route exact path="/FeaturedCatalog" component={FeaturedCatalogWidget} />
       </Switch>
